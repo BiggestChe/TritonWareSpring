@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ButtonPress : MonoBehaviour, Clickable_Interface
+public class Wheats : MonoBehaviour, Clickable_Interface
 {
-
-    public Counter counter;
+    public WheatCounter counter;
     // Start is called before the first frame update
     void Start()
     {

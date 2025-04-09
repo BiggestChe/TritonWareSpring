@@ -4,23 +4,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Counter : MonoBehaviour
+public class EggCounter : MonoBehaviour
 {
 
     public GameObject Capsule;
-    private int counter = 0; 
+    public GameManager game;
     private bool isCounting = false;
     public float interval = 1f;
-
     public TextMeshProUGUI Text;
 
     // Start is called before the first frame update
     void Start()
     {
-        Text.text = "0";
-        
+        Text.text = "Eggs: 0";
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +33,7 @@ public void OnCapsulePressed()
         }
             isCounting = false;
 
+            game.AddEggs(1);
 
         Debug.Log("incrementing");
     }
@@ -44,8 +42,7 @@ public void OnCapsulePressed()
     {
         {
             yield return new WaitForSeconds(interval);
-            counter++;
-            Text.text = counter.ToString();
+            Text.text = "Eggs: " + game.eggs.ToString();
         }
     }
 }

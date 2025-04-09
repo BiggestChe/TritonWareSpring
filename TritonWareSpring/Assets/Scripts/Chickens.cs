@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ExitToFarm : MonoBehaviour, Clickable_Interface
+public class Chickens : MonoBehaviour, Clickable_Interface
 {
-
-    public LayerSwitcher layerSwitcher;
+    public EggCounter counter;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +19,9 @@ public class ExitToFarm : MonoBehaviour, Clickable_Interface
     }
 
     public void Click(){
+        Debug.Log("help");
 
-        Debug.Log("hopefully moves to farm");
-
-        layerSwitcher.SwitchToFarm();
-
-
+        counter.OnCapsulePressed();
     }
+
 }
