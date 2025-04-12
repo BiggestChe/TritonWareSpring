@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public int eggs = 0;
     public int wheat = 0;
     public int cakes = 0;
+    public int MaxCapacity = 5;
+
+    public bool IsFull = false;
+
 
     //Game Stats
 

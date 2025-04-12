@@ -13,13 +13,17 @@ public class DistractionManager : MonoBehaviour, Clickable_Interface
 
     public SpriteRenderer sprite;
 
+    public AudioManager audioManager;
+
+
     // Weed Repellent-related variables
     public float weedRepellentDuration = 10f; // How long the weed repellent lasts (in seconds)
 
     // Flags to track distractions
     public bool isFoxAttacking = false;
     public bool FoxRepelled = false;
-    public bool isWeedRepellentActive = false; 
+    public bool isWeedRepellentActive = false;
+    public int click_count = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -45,30 +49,42 @@ public class DistractionManager : MonoBehaviour, Clickable_Interface
                 sprite.enabled = true;
                 Debug.Log("Fox is attacking! No eggs can be produced.");
 
-            
-                if(FoxRepelled){
-                 // End the fox attack
+                // Wait until the fox is repelled
+                yield return new WaitUntil(() => FoxRepelled);
+
+                // End the fox attack
                 sprite.enabled = false;
                 isFoxAttacking = false;
-                Debug.Log("Fox left! Egg production resumed.");
-                }
-
                 FoxRepelled = false;
+                Debug.Log("Fox left! Egg production resumed.");
 
             }
-
             yield return null; // Wait for the next frame
         }
+
     }
 
     //turns off fox
-    public void DeactivateFox(){
+    public void DeactivateFox()
+    {
         isFoxAttacking = false;
         FoxRepelled = true;
         Debug.Log("Fox has been removed!");
     }
-    public void Click(){
-        DeactivateFox();
+    public void Click()
+    {
+        if (isFoxAttacking)
+        {
+            click_count += 1;
+            audioManager.Play("FoxScreech");
+
+
+            if (click_count == 12)
+            {
+                DeactivateFox();
+                click_count = 0;
+            }
+        }
         Debug.Log("this is where the fox should be");
     }
 

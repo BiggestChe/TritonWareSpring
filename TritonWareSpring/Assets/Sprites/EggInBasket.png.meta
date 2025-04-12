@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 3c3559c3579f0d740980f7a6d5d83b28
+guid: a90e85d1d44d4ad43ad4ea7ba57c713b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4833860073627831534
-    second: Foxinhenhouse_0
+      213: -1704875254107467137
+    second: EggInBasket_0
   - first:
-      213: 8671840647017904817
-    second: Foxinhenhouse_1
-  - first:
-      213: -1867090883512478367
-    second: Foxinhenhouse_2
-  - first:
-      213: 5553184193273715198
-    second: Foxinhenhouse_3
+      213: 21520368104377488
+    second: EggInBasket_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,51 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Foxinhenhouse_0
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 1159
-        width: 157
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2133879bfddaaecb0800000000000000
-      internalID: -4833860073627831534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Foxinhenhouse_1
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 1224
-        width: 11
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1babb428f11985870800000000000000
-      internalID: 8671840647017904817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Foxinhenhouse_2
+      name: EggInBasket_0
       rect:
         serializedVersion: 2
         x: 565
@@ -168,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1655ed4dbb2c616e0800000000000000
-      internalID: -1867090883512478367
+      spriteID: f72129c3df01758e0800000000000000
+      internalID: -1704875254107467137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foxinhenhouse_3
+      name: EggInBasket_1
       rect:
         serializedVersion: 2
-        x: 765
-        y: 715
-        width: 27
-        height: 50
+        x: 1134
+        y: 412
+        width: 20
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef9d46c0a9fd01d40800000000000000
-      internalID: 5553184193273715198
+      spriteID: 09c0c4829a47c4000800000000000000
+      internalID: 21520368104377488
       vertices: []
       indices: 
       edges: []
@@ -209,11 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Foxinhenhouse_0: -4833860073627831534
-      Foxinhenhouse_1: 8671840647017904817
-      Foxinhenhouse_2: -1867090883512478367
-      Foxinhenhouse_3: 5553184193273715198
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
