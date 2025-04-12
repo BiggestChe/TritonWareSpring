@@ -13,6 +13,8 @@ public class EggCounter : MonoBehaviour
     public float interval = 1f;
     public TextMeshProUGUI Text;
 
+    public DistractionManager distractionManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,25 +26,36 @@ public class EggCounter : MonoBehaviour
         
     }
 
-public void OnCapsulePressed()
+    //on chicken house pressed, and no fox attack
+    //increment chickens gained by 1
+    public void OnCapsulePressed()
     {
-        if (!isCounting)
+        if (!isCounting && !distractionManager.isFoxAttacking) 
         {
             isCounting = true;
             StartCoroutine(IncrementCounter());
+            game.AddEggs(1);
+        }
+
+        else{
+            Debug.Log("you can't do that!");
         }
             isCounting = false;
-
-            game.AddEggs(1);
-
         Debug.Log("incrementing");
     }
 
+    //increment counter of eggs gained using data values of Gamemanager.game.
     private IEnumerator IncrementCounter()
     {
         {
+            while(!distractionManager.isFoxAttacking){
+
             yield return new WaitForSeconds(interval);
             Text.text = "Eggs: " + game.eggs.ToString();
+            }
+
         }
     }
+
+
 }

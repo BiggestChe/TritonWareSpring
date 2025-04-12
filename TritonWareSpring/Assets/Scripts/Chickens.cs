@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Chickens : MonoBehaviour, Clickable_Interface
 {
+
     public EggCounter counter;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,6 @@ public class Chickens : MonoBehaviour, Clickable_Interface
 
     public void Click(){
         Debug.Log("help");
-
         counter.OnCapsulePressed();
     }
 
