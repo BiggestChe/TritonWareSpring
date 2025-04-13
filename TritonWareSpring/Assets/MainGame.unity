@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CowObject: {fileID: 0}
   game: {fileID: 1745542899}
-  milkingTime: 5
+  milkingTime: 3
   Text: {fileID: 100277353}
   FullMilkBucket: {fileID: 1621664644}
 --- !u!114 &100277353
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   Capsule: {fileID: 1217500637}
   game: {fileID: 1745542899}
   interval: 1
-  layTime: 5
+  layTime: 3
   Text: {fileID: 486910373}
   FINISHED_EGG: {fileID: 1911078771}
   distractionManager: {fileID: 2080882242}
@@ -5436,7 +5436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Capsule: {fileID: 398550845}
   game: {fileID: 1745542899}
-  growTime: 5
+  growTime: 3
   Text: {fileID: 2006583613}
   distractionManager: {fileID: 300218722}
   BeginningSeed: {fileID: 421805417}
