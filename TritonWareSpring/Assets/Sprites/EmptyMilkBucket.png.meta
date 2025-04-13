@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EmptyMilkBucket_0: -3057580061483143753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AngryCow_0: -428902174695053443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
