@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public int cakes = 0;
 
+    public bool hasDough = false;
+
     public List<IngredientType> ticketlist = new List<IngredientType>();
     
 
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
         AddIngredient(IngredientType.Wheat);
     }
 
-    // Optional: Method to remove or use ingredients from the basket
+    //remove or use ingredients from the basket
     public void UseIngredient(IngredientType ingredient)
     {
         if (basket.Contains(ingredient))
@@ -75,5 +77,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No " + ingredient + " in basket to use.");
         }
+    }
+
+    
+    public void PassBlender(){
+        hasDough = true;
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 // This script simulates weeds periodically growing over the wheat field, 
 // requiring the player to click multiple times to repel them.
-public class WheatDistraction : MonoBehaviour, Clickable_Interface
+public class WheatDistraction : MonoBehaviour, IClickable
 {
     // Reference to the sprite that represents the weeds visually
     public SpriteRenderer sprite;

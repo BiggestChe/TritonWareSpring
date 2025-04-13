@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Chickens : MonoBehaviour, Clickable_Interface
+public class Chickens : MonoBehaviour, IClickable
 {
 
     public EggCounter counter;

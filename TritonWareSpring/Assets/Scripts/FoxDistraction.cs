@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FoxDistraction : MonoBehaviour, Clickable_Interface
+public class FoxDistraction : MonoBehaviour, IClickable
 {
     public SpriteRenderer sprite;
     public AudioManager audioManager;
@@ -11,7 +11,9 @@ public class FoxDistraction : MonoBehaviour, Clickable_Interface
     public bool isFoxAttacking = false;
     public bool FoxRepelled = false;
 
-    private int click_count = 0;
+    public int ClICK_COUNT = 0;
+
+    public int REQUIRED_COUNTS = 10;
 
 
     private void Start()
@@ -59,12 +61,12 @@ public class FoxDistraction : MonoBehaviour, Clickable_Interface
         if (isFoxAttacking)
         {
             //to get rid of fox, must click him 12 times
-            click_count++;
-            if (click_count >= 12)
+            ClICK_COUNT++;
+            if (ClICK_COUNT >= REQUIRED_COUNTS)
             {
                 audioManager.Play("FoxScreech");
                 DeactivateFox();
-                click_count = 0;
+                ClICK_COUNT = 0;
             }
         }
     }

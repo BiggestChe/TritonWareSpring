@@ -2,7 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class MilkDistraction : MonoBehaviour, Clickable_Interface
+public class MilkDistraction : MonoBehaviour, IClickable
 {
     public SpriteRenderer sprite;
     public AudioManager audioManager;

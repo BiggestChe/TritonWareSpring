@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitToFarm : MonoBehaviour, Clickable_Interface
+public class ExitToFarm : MonoBehaviour, IClickable
 {
 
     public LayerSwitcher layerSwitcher;
