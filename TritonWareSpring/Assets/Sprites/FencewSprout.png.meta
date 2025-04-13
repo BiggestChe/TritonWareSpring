@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: a90e85d1d44d4ad43ad4ea7ba57c713b
+guid: 5f0b38c80a7715244acfad5b6dea6853
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1704875254107467137
-    second: EggInBasket_0
+      213: -4354026081083498545
+    second: FencewSprout_0
   - first:
-      213: 21520368104377488
-    second: EggInBasket_1
+      213: -4610971995725115219
+    second: FencewSprout_1
+  - first:
+      213: -685077569722892744
+    second: FencewSprout_2
+  - first:
+      213: 5901231798339500390
+    second: FencewSprout_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EggInBasket_0
+      name: FencewSprout_0
       rect:
         serializedVersion: 2
-        x: 565
-        y: 871
-        width: 320
-        height: 299
+        x: 454
+        y: 1282
+        width: 177
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f72129c3df01758e0800000000000000
-      internalID: -1704875254107467137
+      spriteID: fcf5b3e09546393c0800000000000000
+      internalID: -4354026081083498545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EggInBasket_1
+      name: FencewSprout_1
       rect:
         serializedVersion: 2
-        x: 1134
-        y: 412
-        width: 20
-        height: 19
+        x: 2325
+        y: 1082
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09c0c4829a47c4000800000000000000
-      internalID: 21520368104377488
+      spriteID: da0d78d56698200c0800000000000000
+      internalID: -4610971995725115219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencewSprout_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 1442
+        height: 904
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e341d749d1e76f0800000000000000
+      internalID: -685077569722892744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FencewSprout_3
+      rect:
+        serializedVersion: 2
+        x: 2037
+        y: 39
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669f345fd0365e150800000000000000
+      internalID: 5901231798339500390
       vertices: []
       indices: 
       edges: []
@@ -150,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fab934cef3eab174c8e2f4abc067c7a8
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EggInBasket_0: -1704875254107467137
-      EggInBasket_1: 21520368104377488
+      FencewSprout_0: -4354026081083498545
+      FencewSprout_1: -4610971995725115219
+      FencewSprout_2: -685077569722892744
+      FencewSprout_3: 5901231798339500390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

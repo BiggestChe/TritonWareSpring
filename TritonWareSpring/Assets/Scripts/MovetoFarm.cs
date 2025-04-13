@@ -11,13 +11,6 @@ public class ExitToFarm : MonoBehaviour, Clickable_Interface
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Click(){
 
         Debug.Log("hopefully moves to farm");

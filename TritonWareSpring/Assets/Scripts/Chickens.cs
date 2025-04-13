@@ -7,18 +7,6 @@ public class Chickens : MonoBehaviour, Clickable_Interface
 {
 
     public EggCounter counter;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Click(){
         Debug.Log("help");
         counter.OnCapsulePressed();

@@ -4,46 +4,76 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //Player Stats
-    public int milk = 0;
-    public int eggs = 0;
-    public int wheat = 0;
-    public int cakes = 0;
+    public enum IngredientType { Egg, Milk, Wheat }
+
     public int MaxCapacity = 5;
 
-    public bool IsFull = false;
-
+    // Represents the player's basket
+    public List<IngredientType> basket = new List<IngredientType>();
 
     //Game Stats
-
     public int timer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int cakes = 0;
+
+    public List<IngredientType> ticketlist = new List<IngredientType>();
+    
+
+
+    //isfull
+    public bool IsFull()
     {
-        
+        return basket.Count >= MaxCapacity;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddIngredient(IngredientType ingredient)
     {
-        
+        if (!IsFull())
+        {
+            basket.Add(ingredient);
+            Debug.Log(ingredient + " added. Basket now has " + basket.Count + " items.");
+        }
+        else
+        {
+            Debug.Log("Basket is full! Can't add more ingredients.");
+        }
     }
-    public void AddMilk(int amount)
+    //adds egg to ingredient array
+    public void AddEggs()
     {
-        milk += amount;
-        Debug.Log("Milk: " + milk);
+        AddIngredient(IngredientType.Egg);
+        Debug.Log("Egg added");
     }
 
-    public void AddEggs(int amount)
+    //adds milk to ingredient array
+
+    public void AddMilk()
     {
-        eggs += amount;
-        Debug.Log("Eggs: " + eggs);
+        AddIngredient(IngredientType.Milk);
+        Debug.Log("Milk added");
+
     }
 
-    public void AddWheat(int amount)
+    //adds wheat to ingredient array
+
+    public void AddWheat()
     {
-        wheat += amount;
-        Debug.Log("Wheat: " + wheat);
+        Debug.Log("Wheat added");
+
+        AddIngredient(IngredientType.Wheat);
+    }
+
+    // Optional: Method to remove or use ingredients from the basket
+    public void UseIngredient(IngredientType ingredient)
+    {
+        if (basket.Contains(ingredient))
+        {
+            basket.Remove(ingredient);
+            Debug.Log(ingredient + " used. Basket now has " + basket.Count + " items.");
+        }
+        else
+        {
+            Debug.Log("No " + ingredient + " in basket to use.");
+        }
     }
 }

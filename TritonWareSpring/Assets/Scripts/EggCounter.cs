@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class EggCounter : MonoBehaviour
 {
-
     public GameObject Capsule;
     public GameManager game;
-    private bool isCounting = false;
     public float interval = 1f;
 
     //three possible states for the chicken, 
@@ -20,13 +18,17 @@ public class EggCounter : MonoBehaviour
     */
     private enum ChickenState { Idle, Laying, ReadyToCollect }
     private ChickenState currentState = ChickenState.Idle;
-
     public float layTime = 3f;
-    private bool isLaying = false;
     public TextMeshProUGUI Text;
 
-    public DistractionManager distractionManager;
+    public SpriteRenderer FINISHED_EGG;
+    public FoxDistraction distractionManager;
 
+
+    public void Awake()
+    {
+        FINISHED_EGG.enabled = false;
+    }
     //calls upon clicking on the chicken house
     public void OnCapsulePressed()
     {
@@ -36,7 +38,6 @@ public class EggCounter : MonoBehaviour
         return;
     }
 
-
     switch (currentState)
     {
         case ChickenState.Idle:
@@ -45,6 +46,7 @@ public class EggCounter : MonoBehaviour
 
         case ChickenState.ReadyToCollect:
             CollectEgg();
+            FINISHED_EGG.enabled = false;
             break;
 
         case ChickenState.Laying:
@@ -52,6 +54,7 @@ public class EggCounter : MonoBehaviour
             break;
     }
 }
+
 
 private IEnumerator LayEggRoutine()
 {
@@ -63,17 +66,27 @@ private IEnumerator LayEggRoutine()
 
     yield return new WaitForSeconds(layTime);
 
+    //update chicken sprite to show egg is produced
+    FINISHED_EGG.enabled = true;
+
     currentState = ChickenState.ReadyToCollect;
     Debug.Log("Egg is ready to collect!");
-    // Optional: Show an icon or visual indicator on chicken
+
 }
 
 private void CollectEgg()
 {
-    game.AddEggs(1);
+    //checks if basket is full
+    if (game.IsFull())
+    {
+        Debug.Log("Basket is full! Can't collect egg.");
+        return;
+    }
+
+    //adds ingredient to the "basket"
+    game.AddIngredient(GameManager.IngredientType.Egg);
     currentState = ChickenState.Idle;
     Debug.Log("Egg collected!");
-    Text.text = "Eggs: " + game.eggs.ToString();
 }
 
 

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a90e85d1d44d4ad43ad4ea7ba57c713b
+guid: 421876d241fdd284e8d936e56931040e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1704875254107467137
-    second: EggInBasket_0
-  - first:
-      213: 21520368104377488
-    second: EggInBasket_1
+      213: -3057580061483143753
+    second: EmptyMilkBucket_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EggInBasket_0
+      name: EmptyMilkBucket_0
       rect:
         serializedVersion: 2
-        x: 565
-        y: 871
-        width: 320
-        height: 299
+        x: 1510
+        y: 687
+        width: 182
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f72129c3df01758e0800000000000000
-      internalID: -1704875254107467137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EggInBasket_1
-      rect:
-        serializedVersion: 2
-        x: 1134
-        y: 412
-        width: 20
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09c0c4829a47c4000800000000000000
-      internalID: 21520368104377488
+      spriteID: 7bdeaf2422b4195d0800000000000000
+      internalID: -3057580061483143753
       vertices: []
       indices: 
       edges: []
@@ -159,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      EggInBasket_0: -1704875254107467137
-      EggInBasket_1: 21520368104377488
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
