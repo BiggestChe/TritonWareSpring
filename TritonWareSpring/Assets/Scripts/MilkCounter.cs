@@ -16,7 +16,6 @@ public class MilkCounter : MonoBehaviour
     private void Awake()
     {
         FullMilkBucket.enabled = false;
-        Text.text = "Milk: 0";
     }
 
     public void OnCapsulePressed()

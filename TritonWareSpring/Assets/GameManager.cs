@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public GameObject eggImage;
+    public GameObject milkImage;
+    public GameObject wheatImage;
+
+    public List<Transform> basketSlots = new List<Transform>();
+    public Transform basketUI;
     public enum IngredientType { Egg, Milk, Wheat }
+    public Dictionary<IngredientType, GameObject> ingredient_UI;
 
     public int MaxCapacity = 5;
 
@@ -13,27 +21,66 @@ public class GameManager : MonoBehaviour
 
     //Game Stats
     public int timer;
-
     public int cakes = 0;
 
     public bool hasDough = false;
 
     public List<IngredientType> ticketlist = new List<IngredientType>();
-    
+
+    void Start()
+    {
+        {
+
+        //a dictionary connected ingredient types to their GameObject
+        ingredient_UI = new Dictionary<IngredientType, GameObject>{
+        { IngredientType.Egg, eggImage},
+        { IngredientType.Milk, milkImage },
+        { IngredientType.Wheat, wheatImage }
+
+        };
+        }
+    }
+
+    //using a list of objects, associate the current basket list with the slots
+    //of the basket UI
+    public void UpdateBasketUI()
+{
+    for(int i = 0; i<basket.Count && i< basketSlots.Count; i++){
+        IngredientType ingredient = basket[i];
+
+        //using mapping of ingredient to UI image, make an instance of the ingredient in the 
+        //basket
+        if (ingredient_UI.ContainsKey(ingredient))
+        {
+            GameObject added_Ingredient = Instantiate(ingredient_UI[ingredient], basketSlots[i]);
+
+            //creates a child under the slot parent
+            //accesses rect transform property to set to Vector2.zero (0, 0)
+            //in terms of parent slot
+            added_Ingredient.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
+    }
+
+    }
 
 
-    //isfull
+    //if the basket is full, do not allow any more ingredients
     public bool IsFull()
     {
         return basket.Count >= MaxCapacity;
     }
 
+    /*
+    adds ingredient to list based on parameter added
+    checks for fullness, should cap at 5
+    */
     public void AddIngredient(IngredientType ingredient)
     {
         if (!IsFull())
         {
             basket.Add(ingredient);
             Debug.Log(ingredient + " added. Basket now has " + basket.Count + " items.");
+            UpdateBasketUI();
         }
         else
         {
@@ -79,8 +126,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
-    public void PassBlender(){
+
+    public void PassBlender()
+    {
         hasDough = true;
     }
 }
