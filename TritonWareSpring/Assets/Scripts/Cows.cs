@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Cows : MonoBehaviour, Clickable_Interface
+public class Cows : MonoBehaviour, IClickable
 {
     public MilkCounter counter;
     // Start is called before the first frame update

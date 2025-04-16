@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//basically, next to every class made, put Clickable_Interface after MonoBehavior
-//contains logic of the ClickManager
-//assign whatever object a box collider, give it a script, and include Click()
-//then assign whatever logic you want when clicked on
-public class ClickManager : MonoBehaviour, Clickable_Interface
+public class ClickManager : MonoBehaviour
 {
     private Camera cam;
 
@@ -26,9 +22,10 @@ public class ClickManager : MonoBehaviour, Clickable_Interface
 
             if (hit && hit.transform.CompareTag("Interactable"))
             {
-                Clickable_Interface clickable = hit.collider.GetComponent<Clickable_Interface>();
+                IClickable clickable = hit.collider.GetComponent<IClickable>();
                 clickable?.Click(); // Call Click if IClickable exists
             }
         }
     }
 }
+

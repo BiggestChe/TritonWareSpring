@@ -3,22 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Chickens : MonoBehaviour, Clickable_Interface
+public class Chickens : MonoBehaviour, IClickable
 {
 
     public EggCounter counter;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Click(){
         Debug.Log("help");
         counter.OnCapsulePressed();

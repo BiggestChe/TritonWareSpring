@@ -1,48 +1,66 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class MilkCounter : MonoBehaviour
 {
-
-    public GameObject Capsule;
+    public GameObject CowObject;
     public GameManager game;
-    private bool isCounting = false;
-    public float interval = 1f;
+    public float milkingTime = 3f;
     public TextMeshProUGUI Text;
+    public SpriteRenderer FullMilkBucket;    // Visual cue for full bucket
 
-    // Start is called before the first frame update
-    void Start()
+    private enum MilkState { Idle, Milking, ReadyToCollect }
+    private MilkState currentState = MilkState.Idle;
+
+    private void Awake()
     {
-        Text.text = "Milk: 0";
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        FullMilkBucket.enabled = false;
     }
 
-public void OnCapsulePressed()
+    public void OnCapsulePressed()
     {
-        if (!isCounting)
+        switch (currentState)
         {
-            isCounting = true;
-            StartCoroutine(IncrementCounter());
-        }
-            isCounting = false;
+            case MilkState.Idle:
+                StartCoroutine(MilkCowRoutine());
+                break;
 
-            game.AddMilk(1);
+            case MilkState.ReadyToCollect:
+                CollectMilk();
+                FullMilkBucket.enabled = false;
+                break;
 
-        Debug.Log("incrementing");
-    }
-
-    private IEnumerator IncrementCounter()
-    {
-        {
-            yield return new WaitForSeconds(interval);
-            Text.text = "Milk: " + game.milk.ToString();
+            case MilkState.Milking:
+                Debug.Log("Milking in progress...");
+                break;
         }
     }
+
+    private IEnumerator MilkCowRoutine()
+    {
+        Debug.Log("Milking the cow...");
+        currentState = MilkState.Milking;
+
+        yield return new WaitForSeconds(milkingTime);
+        FullMilkBucket.enabled = true;
+        currentState = MilkState.ReadyToCollect;
+
+        Debug.Log("Milk is ready to collect!");
+    }
+
+    private void CollectMilk()
+    {
+        if (game.IsFull())
+        {
+            Debug.Log("Basket is full! Can't collect milk.");
+            return;
+        }
+
+        game.AddIngredient(GameManager.IngredientType.Milk);
+        currentState = MilkState.Idle;
+
+        Debug.Log("Milk collected!");
+    }
+
 }

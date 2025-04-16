@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitToFarm : MonoBehaviour, Clickable_Interface
+public class ExitToFarm : MonoBehaviour, IClickable
 {
 
     public LayerSwitcher layerSwitcher;
@@ -11,13 +11,6 @@ public class ExitToFarm : MonoBehaviour, Clickable_Interface
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Click(){
 
         Debug.Log("hopefully moves to farm");

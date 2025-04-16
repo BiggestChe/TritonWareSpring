@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitToKitchen : MonoBehaviour, Clickable_Interface
+public class ExitToKitchen : MonoBehaviour, IClickable
 {
     public LayerSwitcher layerSwitcher;
     // Start is called before the first frame update
