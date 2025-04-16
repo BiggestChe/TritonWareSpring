@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TritonWareSpring.sln"
+    "dotnet.defaultSolution": "TritonWareSpring.sln",
+    "workbench.colorTheme": "Default Dark Modern"
 }
