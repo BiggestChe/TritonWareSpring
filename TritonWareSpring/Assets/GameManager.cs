@@ -8,24 +8,30 @@ public class GameManager : MonoBehaviour
     public GameObject eggImage;
     public GameObject milkImage;
     public GameObject wheatImage;
-
     public List<Transform> basketSlots = new List<Transform>();
     public Transform basketUI;
     public enum IngredientType { Egg, Milk, Wheat }
     public Dictionary<IngredientType, GameObject> ingredient_UI;
 
-    public int MaxCapacity = 5;
-
     // Represents the player's basket
+    public int MaxCapacity = 5;
     public List<IngredientType> basket = new List<IngredientType>();
 
     //Game Stats
     public int timer;
     public int cakes = 0;
-
     public bool hasDough = false;
-
     public List<IngredientType> ticketlist = new List<IngredientType>();
+
+    public int blender_eggs = 0;
+
+    public int blender_wheat = 0;
+
+    public int blender_milk = 0;
+
+    private int blender_req_eggs = 0;
+    private int blender_req_wheat = 0;
+    private int blender_req_milk = 0;
 
     void Start()
     {
@@ -53,6 +59,7 @@ public class GameManager : MonoBehaviour
         if (ingredient_UI.ContainsKey(ingredient))
         {
             GameObject added_Ingredient = Instantiate(ingredient_UI[ingredient], basketSlots[i]);
+            added_Ingredient.tag = ingredient_UI[ingredient].tag;
 
             //creates a child under the slot parent
             //accesses rect transform property to set to Vector2.zero (0, 0)

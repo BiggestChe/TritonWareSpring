@@ -5,11 +5,11 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     public GameObject itemBeingDragged;
     private Vector3 startPosition;
-
     //displacement of a vector value
     private Vector3 offset;
     public Canvas canvas;
 
+    public GameManager gameManager;
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -18,6 +18,9 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 public void OnBeginDrag(PointerEventData eventData)
 {
+    itemBeingDragged = gameObject;
+    Debug.Log(itemBeingDragged.tag);
+    Debug.Log(itemBeingDragged.name);
     startPosition = transform.position;
     offset = transform.position - Input.mousePosition;
     transform.SetAsLastSibling(); // bring to front
@@ -37,9 +40,22 @@ public void OnBeginDrag(PointerEventData eventData)
 
         if (hit.collider != null && hit.collider.CompareTag("Bowl"))
         {
-            switch(itemBeingDragged.name)
+            switch(itemBeingDragged.tag)
             {
-                case "Egg": game
+                case "Egg": 
+                gameManager.blender_eggs += 1;
+                Debug.Log(gameManager.blender_eggs + "eggs");
+                break;
+
+                case "Wheat":
+                gameManager.blender_wheat += 1;
+                Debug.Log(gameManager.blender_wheat + "wheat");
+                break;
+
+                case "Milk":
+                gameManager.blender_milk += 1;
+                Debug.Log(gameManager.blender_wheat + "wheat");
+                break;
             }
         
             Debug.Log("Dropped on the bowl!");
