@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public GameObject eggImage;
     public GameObject milkImage;
     public GameObject wheatImage;
+
+    public Canvas player_UI;
+
+    public GameObject LoseScreen;
     public List<Transform> basketSlots = new List<Transform>();
     public Transform basketUI;
     public enum IngredientType { Egg, Milk, Wheat }
@@ -33,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        LoseScreen.SetActive(false);
         {
 
         //a dictionary connected ingredient types to their GameObject
@@ -137,8 +142,15 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife(){
         lives--;
+        if(lives == 0){
+            OnLose();
+        }
     }
 
+    public void OnLose(){
+        LoseScreen.SetActive(true);
+        player_UI.enabled = false;
+    }
 
     public void PassBlender()
     {

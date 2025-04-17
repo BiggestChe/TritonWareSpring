@@ -30,6 +30,7 @@ public class LayerSwitcher : MonoBehaviour
             StartCoroutine(FadeAndMove(kitchenLayer, moveOut, farmLayer, moveInFarm));
     }
 
+
     private IEnumerator FadeAndMove(GameObject currentLayer, Vector3 OffScreen, GameObject toNewLayer, Vector3 toNewPos)
     {
         isFading = true;

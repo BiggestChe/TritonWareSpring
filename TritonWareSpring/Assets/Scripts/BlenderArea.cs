@@ -49,6 +49,7 @@ public class BlenderCheck : MonoBehaviour, IClickable
         else
         {
             gameManager.hasDough = false;
+            gameManager.LoseLife();
             Debug.Log("Wrong Ingredients");
             ResetBlender();
             TicketGenerator.tickets.GenerateCakeTicket();
