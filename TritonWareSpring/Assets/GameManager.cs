@@ -24,14 +24,12 @@ public class GameManager : MonoBehaviour
     public List<IngredientType> ticketlist = new List<IngredientType>();
 
     public int blender_eggs = 0;
-
     public int blender_wheat = 0;
-
     public int blender_milk = 0;
 
-    private int blender_req_eggs = 0;
-    private int blender_req_wheat = 0;
-    private int blender_req_milk = 0;
+    public int lives = 3;
+
+
 
     void Start()
     {
@@ -56,7 +54,9 @@ public class GameManager : MonoBehaviour
 
         //using mapping of ingredient to UI image, make an instance of the ingredient in the 
         //basket
-        if (ingredient_UI.ContainsKey(ingredient))
+        if (basketSlots[i].childCount < 1){
+            
+            if (ingredient_UI.ContainsKey(ingredient))
         {
             GameObject added_Ingredient = Instantiate(ingredient_UI[ingredient], basketSlots[i]);
             added_Ingredient.tag = ingredient_UI[ingredient].tag;
@@ -66,10 +66,12 @@ public class GameManager : MonoBehaviour
             //in terms of parent slot
             added_Ingredient.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
+
+        }
+        
     }
 
     }
-
 
     //if the basket is full, do not allow any more ingredients
     public bool IsFull()
@@ -131,6 +133,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No " + ingredient + " in basket to use.");
         }
+    }
+
+    public void LoseLife(){
+        lives--;
     }
 
 
