@@ -5,6 +5,7 @@ public class BlenderCheck : MonoBehaviour, IClickable
     //should activate on button press of blender
 
     public GameManager gameManager;
+
     public void CheckBlenderIngredients()
     {
 
@@ -42,14 +43,16 @@ public class BlenderCheck : MonoBehaviour, IClickable
             //sets hasDough = true; allowed to put oven minigame
             gameManager.hasDough = true;
             Debug.Log("all matching");
+            ResetBlender();
+            TicketGenerator.tickets.GenerateCakeTicket();
         }
         else
         {
             gameManager.hasDough = false;
-            Debug.Log("Wrong ingredients.");
+            Debug.Log("Wrong Ingredients");
+            ResetBlender();
+            TicketGenerator.tickets.GenerateCakeTicket();
         }
-
-        ResetBlender();
     }
 
     public void Click(){

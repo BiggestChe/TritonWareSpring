@@ -4,7 +4,8 @@ using UnityEngine.UIElements;
 
 public class Knob : MonoBehaviour
 {
-    //creates an instance of the class that belongs to itself so I can use it to access the class from other classes
+    //holds a static reference to the Knob instance so other classes can access it globally (singleton) 
+    //very useful when I don't need multiple instances of a class 
     public static Knob knobInstance;
     //used for the object positional values, let's me use RectTransform component of objects
     public RectTransform knobPosition;

@@ -4,9 +4,12 @@ public class TicketGenerator : MonoBehaviour
 {
 
     public GameManager gameManager;
+
+    public static TicketGenerator tickets; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        tickets = this;
         GenerateCakeTicket();
         Debug.Log(gameManager.ticketlist.ToString());
     }
@@ -37,5 +40,4 @@ public class TicketGenerator : MonoBehaviour
 
         Debug.Log("Generated cake ticket: " + string.Join(", ", gameManager.ticketlist));
     }
-
 }

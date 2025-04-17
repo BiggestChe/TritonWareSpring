@@ -73,10 +73,15 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         if(hit.collider != null && hit.collider.CompareTag("Oven"))
         {
-            if (gameManager.hasDough = true)
+            if (gameManager.hasDough = true && itemBeingDragged.tag == "Dough")
             {
                 cookingSlider.SetActive(true);
+                gameManager.hasDough = false; 
             }
+
+            Debug.Log("Dropped in bowl!");
+            Destroy(gameObject); // or SetActive(false), or snap into place
+            return;
         }
 
         // Not dropped on bowl — return to original position

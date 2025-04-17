@@ -33,7 +33,8 @@ public class CookingSlider : MonoBehaviour
         }
         else
         {
-            return;
+            game.LoseLife(); 
         }
+        this.enabled = false;
     }
 }
