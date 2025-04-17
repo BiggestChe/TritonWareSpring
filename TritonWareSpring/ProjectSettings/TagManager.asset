@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
+  - Bowl
+  - Egg
+  - Wheat
+  - Milk
   layers:
   - Default
   - TransparentFX
