@@ -36,11 +36,11 @@ public class GameManager : MonoBehaviour
         {
 
         //a dictionary connected ingredient types to their GameObject
-        ingredient_UI = new Dictionary<IngredientType, GameObject>{
+        ingredient_UI = new Dictionary<IngredientType, GameObject>
+        {
         { IngredientType.Egg, eggImage},
         { IngredientType.Milk, milkImage },
         { IngredientType.Wheat, wheatImage }
-
         };
         }
     }
