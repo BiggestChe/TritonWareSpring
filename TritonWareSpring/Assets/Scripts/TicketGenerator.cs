@@ -4,9 +4,12 @@ public class TicketGenerator : MonoBehaviour
 {
 
     public GameManager gameManager;
+
+    public static TicketGenerator tickets; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        tickets = this;
         GenerateCakeTicket();
         Debug.Log(gameManager.ticketlist.ToString());
     }
@@ -19,23 +22,22 @@ public class TicketGenerator : MonoBehaviour
 
     public void GenerateCakeTicket()
     {
-    gameManager.ticketlist.Clear(); // Clear any previous ticket
+        gameManager.ticketlist.Clear(); // Clear any previous ticket
 
-    int eggCount = Random.Range(1, 4);   // 1 to 3
-    int milkCount = Random.Range(1, 4);  // 1 to 3
-    int wheatCount = Random.Range(1, 4); // 1 to 3
+        int eggCount = Random.Range(1, 4);   // 1 to 3
+        int milkCount = Random.Range(1, 4);  // 1 to 3
+        int wheatCount = Random.Range(1, 4); // 1 to 3
 
-    for (int i = 0; i < eggCount; i++)
-        gameManager.ticketlist.Add(GameManager.IngredientType.Egg);
-    
-    for (int i = 0; i < milkCount; i++)
-        gameManager.ticketlist.Add(GameManager.IngredientType.Milk);
-    
-    for (int i = 0; i < wheatCount; i++)
-        gameManager.ticketlist.Add(GameManager.IngredientType.Wheat);
+        for (int i = 0; i < eggCount; i++)
+            gameManager.ticketlist.Add(GameManager.IngredientType.Egg);
+        
+        for (int i = 0; i < milkCount; i++)
+            gameManager.ticketlist.Add(GameManager.IngredientType.Milk);
+        
+        for (int i = 0; i < wheatCount; i++)
+            gameManager.ticketlist.Add(GameManager.IngredientType.Wheat);
 
 
-    Debug.Log("Generated cake ticket: " + string.Join(", ", gameManager.ticketlist));
-}
-
+        Debug.Log("Generated cake ticket: " + string.Join(", ", gameManager.ticketlist));
+    }
 }

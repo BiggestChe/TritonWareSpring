@@ -4,28 +4,30 @@ using UnityEngine.EventSystems;
 public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public GameObject itemBeingDragged;
+    public GameObject cookingSlider; 
     private Vector3 startPosition;
     //displacement of a vector value
     private Vector3 offset;
     public Canvas canvas;
 
     public GameManager gameManager;
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
     }
 
 
-public void OnBeginDrag(PointerEventData eventData)
-{
-    itemBeingDragged = gameObject;
-    Debug.Log(itemBeingDragged.tag);
-    Debug.Log(itemBeingDragged.name);
-    startPosition = transform.position;
-    offset = transform.position - Input.mousePosition;
-    transform.SetAsLastSibling(); // bring to front
-    Debug.Log("please work");
-}
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        itemBeingDragged = gameObject;
+        Debug.Log(itemBeingDragged.tag);
+        Debug.Log(itemBeingDragged.name);
+        startPosition = transform.position;
+        offset = transform.position - Input.mousePosition;
+        transform.SetAsLastSibling(); // bring to front
+        Debug.Log("please work");
+    }
 
 
     public void OnDrag(PointerEventData eventData)
@@ -64,7 +66,20 @@ public void OnBeginDrag(PointerEventData eventData)
                 break;
             }
         
-            Debug.Log("Dropped on the bowl!");
+            Debug.Log("Dropped in bowl!");
+            Destroy(gameObject); // or SetActive(false), or snap into place
+            return;
+        }
+
+        if(hit.collider != null && hit.collider.CompareTag("Oven"))
+        {
+            if (gameManager.hasDough = true && itemBeingDragged.tag == "Dough")
+            {
+                cookingSlider.SetActive(true);
+                gameManager.hasDough = false; 
+            }
+
+            Debug.Log("Dropped in bowl!");
             Destroy(gameObject); // or SetActive(false), or snap into place
             return;
         }
