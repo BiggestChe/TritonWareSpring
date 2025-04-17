@@ -32,7 +32,22 @@ public void OnBeginDrag(PointerEventData eventData)
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        itemBeingDragged = null;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+        if (hit.collider != null && hit.collider.CompareTag("Bowl"))
+        {
+            switch(itemBeingDragged.name)
+            {
+                case "Egg": game
+            }
+        
+            Debug.Log("Dropped on the bowl!");
+            Destroy(gameObject); // or SetActive(false), or snap into place
+            return;
+        }
+
+        // Not dropped on bowl — return to original position
         transform.position = startPosition;
     }
 }
