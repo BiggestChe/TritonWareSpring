@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public int timer;
     public int cakes = 0;
     public bool hasDough = false;
+
+    public GameObject dough; 
+
     public List<IngredientType> ticketlist = new List<IngredientType>();
 
     public int blender_eggs = 0;
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoseScreen.SetActive(false);
+        dough.SetActive(false);
         {
 
         //a dictionary connected ingredient types to their GameObject
@@ -48,6 +52,12 @@ public class GameManager : MonoBehaviour
         { IngredientType.Wheat, wheatImage }
         };
         }
+    }
+
+    void Update()
+    {
+        DoughObtained();
+        
     }
 
     //using a list of objects, associate the current basket list with the slots
@@ -137,6 +147,12 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("No " + ingredient + " in basket to use.");
+        }
+    }
+
+    public void DoughObtained(){
+        if (hasDough == true){
+        dough.SetActive(true);
         }
     }
 

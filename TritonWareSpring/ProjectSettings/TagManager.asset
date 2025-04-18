@@ -9,6 +9,8 @@ TagManager:
   - Egg
   - Wheat
   - Milk
+  - Dough
+  - Oven
   layers:
   - Default
   - TransparentFX
