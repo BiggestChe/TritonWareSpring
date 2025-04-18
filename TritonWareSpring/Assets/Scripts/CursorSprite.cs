@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class script : MonoBehaviour
+public class Script : MonoBehaviour
 {
     public Texture2D cursor; // Default cursor sprite
     public Texture2D cursor_down; // Cursor sprite when mouse button is pressed

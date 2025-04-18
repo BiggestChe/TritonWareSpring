@@ -8,8 +8,13 @@ public class MilkCounter : MonoBehaviour
     public GameManager game;
     public float milkingTime = 3f;
     public TextMeshProUGUI Text;
-    public SpriteRenderer FullMilkBucket;    // Visual cue for full bucket
+    public SpriteRenderer FullMilkBucket;   
+    public AudioManager audioManager;
 
+    //three different types of milking
+    //Idle - player hasnt clicked on
+    //Milking - currently producing milk
+    //ReadyToCollect - milk is ready to be harvested
     private enum MilkState { Idle, Milking, ReadyToCollect }
     private MilkState currentState = MilkState.Idle;
 
@@ -18,6 +23,7 @@ public class MilkCounter : MonoBehaviour
         FullMilkBucket.enabled = false;
     }
 
+    //upon clicking of milk house
     public void OnCapsulePressed()
     {
         switch (currentState)
@@ -27,6 +33,8 @@ public class MilkCounter : MonoBehaviour
                 break;
 
             case MilkState.ReadyToCollect:
+                audioManager.Play("Pop2");
+
                 CollectMilk();
                 FullMilkBucket.enabled = false;
                 break;
@@ -49,6 +57,7 @@ public class MilkCounter : MonoBehaviour
         Debug.Log("Milk is ready to collect!");
     }
 
+    //adds milk to basket, checks for fullness, if full, return 
     private void CollectMilk()
     {
         if (game.IsFull())

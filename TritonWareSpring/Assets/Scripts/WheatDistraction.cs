@@ -55,6 +55,8 @@ public class WheatDistraction : MonoBehaviour, IClickable
                 // Wait until the player repels the weeds
                 yield return new WaitUntil(() => WeedRepelled);
 
+                audioManager.Play("WheatPluck");
+
                 // Hide the weeds and reset the state
                 sprite.enabled = false;
                 isWeedBlocking = false;

@@ -18,6 +18,7 @@ public class WheatCounter : MonoBehaviour
 
     public SpriteRenderer FullyGrownHay;
 
+    public AudioManager audioManager;
     public void Awake()
     {
         BeginningSeed.SetActive(false);
@@ -42,6 +43,8 @@ public class WheatCounter : MonoBehaviour
 
             case WheatState.ReadyToHarvest:
                 HarvestWheat();
+                audioManager.Play("Pop2");
+
                 BeginningSeed.SetActive(false);
                 FullyGrownHay.enabled = false;
                 break;

@@ -37,6 +37,9 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.loop = s.loop;
         }
+
+        Play("MainMusic");
+        
     }
 
     public void Play(string name)

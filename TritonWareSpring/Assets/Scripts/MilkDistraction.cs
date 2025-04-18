@@ -19,8 +19,8 @@ public class MilkDistraction : MonoBehaviour, IClickable
 
     // Counts how many times the player has clicked the weeds
     public int ClICK_COUNT = 0;
-
     public int REQUIRED_COUNTS = 10;
+
     // Start is called when the game begins
     private void Start()
     {
@@ -48,6 +48,8 @@ public class MilkDistraction : MonoBehaviour, IClickable
 
                 // Wait until the player makes cow happy
                 yield return new WaitUntil(() => isCowHappy);
+
+                audioManager.Play("Moo");
 
                 // Hide the angered cow and reset the state
                 sprite.enabled = false;

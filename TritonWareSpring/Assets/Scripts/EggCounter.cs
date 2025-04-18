@@ -24,6 +24,8 @@ public class EggCounter : MonoBehaviour
     public SpriteRenderer FINISHED_EGG;
     public FoxDistraction distractionManager;
 
+    public AudioManager audioManager;
+
 
     public void Awake()
     {
@@ -46,6 +48,7 @@ public class EggCounter : MonoBehaviour
 
         case ChickenState.ReadyToCollect:
             CollectEgg();
+            audioManager.Play("Pop2");
             FINISHED_EGG.enabled = false;
             break;
 
