@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efba4e23686fe1d4ba8a0b772500550b
+guid: 274589a8fba114a3f9aaf6d876a6fdc5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2305459260367420589
-    second: stock-photo-dissatisfied-man-showing-thumbs-blue_0
+      213: -1246356997053289601
+    second: Group_1red_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stock-photo-dissatisfied-man-showing-thumbs-blue_0
+      name: Group_1red_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 576
+        width: 1475
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dacb5528bf2aeff10800000000000000
-      internalID: 2305459260367420589
+      spriteID: f7be0572aec04bee0800000000000000
+      internalID: -1246356997053289601
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      stock-photo-dissatisfied-man-showing-thumbs-blue_0: 2305459260367420589
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

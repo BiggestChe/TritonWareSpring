@@ -18,12 +18,14 @@ public class Knob : MonoBehaviour
     //will used to record knob position after click 
     public float currentPos;
 
-    public float minOffset = -7.8f;
-    public float maxOffset = 7.8f;
+    public float minOffset;
+    public float maxOffset;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
+
+        Debug.Log("knob enabled");
         //sets knobInstance to an instance of this class
         knobInstance = this; 
 
@@ -43,18 +45,18 @@ public class Knob : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+         Debug.Log("Update is working!"); 
+
         if(activation)
         {
             // this shit is literally the same as the other implementation, wasted my fucking time for nothing
-            Debug.Log("Activated!"); 
             if(Input.GetMouseButton(0)) 
             {
                 Debug.Log("Mouse Input");
                 //updates the position at where knob stopped 
                 currentPos = knobPosition.localPosition.x; 
                 Debug.Log(currentPos);
-
+                CookingSlider.sliderInstance.strikeCheck();
                 //disables movement 
                 activation = false; 
                 
@@ -87,6 +89,9 @@ public class Knob : MonoBehaviour
         }
     } 
 
+    public float ReturnPosition(){
+        return currentPos;
+    }
 
 
     // public void Click()

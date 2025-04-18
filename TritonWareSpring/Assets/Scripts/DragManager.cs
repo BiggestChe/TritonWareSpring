@@ -1,14 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public GameObject itemBeingDragged;
     public GameObject cookingSlider; 
+    public GameObject knob; 
     private Vector3 startPosition;
     //displacement of a vector value
     private Vector3 offset;
     public Canvas canvas;
+
+    //panel for minigame 
+
+    public GameObject MiniGame;
+    public GameObject KitchenObjects;
 
     public GameManager gameManager;
 
@@ -71,13 +78,18 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             return;
         }
 
-        if(hit.collider != null && hit.collider.CompareTag("Oven"))
+        if(hit.collider != null && hit.collider.CompareTag("Oven") && itemBeingDragged.tag == "Dough" && gameManager.hasDough == true)
         {
-            if (gameManager.hasDough = true && itemBeingDragged.tag == "Dough")
-            {
-                cookingSlider.SetActive(true);
-                gameManager.hasDough = false; 
-            }
+            //I'll need to enable knob first so that slider can use the instance of knob
+            MiniGame.SetActive(true);
+            cookingSlider.SetActive(true);
+            knob.SetActive(true);
+            
+            CookingSlider.sliderInstance.Bake();
+
+            KitchenObjects.SetActive(false);
+
+            gameManager.hasDough = false; 
 
             Debug.Log("Dropped in bowl!");
             Destroy(gameObject); // or SetActive(false), or snap into place
