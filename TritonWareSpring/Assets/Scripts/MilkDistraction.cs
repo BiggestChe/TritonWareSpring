@@ -49,7 +49,7 @@ public class MilkDistraction : MonoBehaviour, IClickable
                 sprite.enabled = true;
                 boxCollider2D.enabled = true;
 
-                Debug.Log("Weeds have overgrown the field!");
+                Debug.Log("The cow is mad!");
 
                 // Wait until the player makes cow happy
                 yield return new WaitUntil(() => isCowHappy);
@@ -62,7 +62,7 @@ public class MilkDistraction : MonoBehaviour, IClickable
 
                 isCowHappy = false;
                 isCowMad = false;
-                Debug.Log("Weeds cleared.");
+                Debug.Log("Cow Calmed.");
             }
 
             yield return null; // Wait for the next frame before checking again

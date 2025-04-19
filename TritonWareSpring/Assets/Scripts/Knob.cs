@@ -43,56 +43,46 @@ public class Knob : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+void Update()
+{
+    if (activation)
     {
-         Debug.Log("Update is working!"); 
-
-        if(activation)
+        if (Input.GetMouseButton(0))
         {
-            // this shit is literally the same as the other implementation, wasted my fucking time for nothing
-            if(Input.GetMouseButton(0)) 
-            {
-                Debug.Log("Mouse Input");
-                //updates the position at where knob stopped 
-                currentPos = knobPosition.localPosition.x; 
-                Debug.Log(currentPos);
-                CookingSlider.sliderInstance.strikeCheck();
-                //disables movement 
-                activation = false; 
-                
-                //resets position
-                knobPosition.localPosition = new Vector2(minOffset,knobPosition.localPosition.y);
-            }
-
-            //current knob positional is moved
-            if((knobPosition.localPosition.x == minOffset && goingReverse == false) || 
-            (knobPosition.localPosition.x < maxOffset && knobPosition.localPosition.x > minOffset && goingReverse == false))
-            {   
-                
-                reverseSpeed = UnityEngine.Random.Range(-15f, -20f); 
-
-                Debug.Log("Should go fowards"); 
-                knobPosition.localPosition += new Vector3(speed * Time.deltaTime, 0, 0);
-            }
-            else if(knobPosition.localPosition.x >= maxOffset || 
-            (knobPosition.localPosition.x < maxOffset && knobPosition.localPosition.x > minOffset && goingReverse == true))
-            {
-                speed = UnityEngine.Random.Range(15f, 20f);
-
-                Debug.Log("Should go reverse"); 
-                goingReverse = true;
-                Debug.Log(goingReverse);
-                knobPosition.localPosition += new Vector3(reverseSpeed* Time.deltaTime, 0, 0);
-            }
-            else if(knobPosition.localPosition.x <= minOffset && goingReverse == true)
-            {
-                Debug.Log("Should go fowards again"); 
-                goingReverse = false; 
-                knobPosition.localPosition += new Vector3(speed * Time.deltaTime, 0, 0);
-                
-            }
+            Debug.Log("Mouse Input");
+            currentPos = knobPosition.localPosition.x;
+            Debug.Log(currentPos);
+            CookingSlider.sliderInstance.strikeCheck();
+            activation = false;
+            knobPosition.localPosition = new Vector2(minOffset, knobPosition.localPosition.y);
         }
-    } 
+
+        float xPos = knobPosition.localPosition.x;
+
+        if ((xPos <= minOffset + 0.01f && !goingReverse) || 
+            (xPos < maxOffset && xPos > minOffset && !goingReverse))
+        {
+            reverseSpeed = UnityEngine.Random.Range(-15f, -20f);
+            Debug.Log("Should go forward");
+            knobPosition.localPosition += new Vector3(speed * Time.deltaTime, 0, 0);
+        }
+        else if (xPos >= maxOffset - 0.01f || 
+                (xPos < maxOffset && xPos > minOffset && goingReverse))
+        {
+            speed = UnityEngine.Random.Range(15f, 20f);
+            Debug.Log("Should go reverse");
+            goingReverse = true;
+            knobPosition.localPosition += new Vector3(reverseSpeed * Time.deltaTime, 0, 0);
+        }
+        else if (xPos <= minOffset + 0.01f && goingReverse)
+        {
+            Debug.Log("Should go forward again");
+            goingReverse = false;
+            knobPosition.localPosition += new Vector3(speed * Time.deltaTime, 0, 0);
+        }
+    }
+}
+
 
     public float ReturnPosition(){
         return currentPos;

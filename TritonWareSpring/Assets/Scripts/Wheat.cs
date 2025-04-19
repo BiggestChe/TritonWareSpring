@@ -8,7 +8,6 @@ public class Wheats : MonoBehaviour, IClickable
     public WheatCounter counter;
     public void Click(){
         Debug.Log("help");
-
         counter.OnCapsulePressed();
     }
 
