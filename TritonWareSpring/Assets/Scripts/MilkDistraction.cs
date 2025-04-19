@@ -20,12 +20,15 @@ public class MilkDistraction : MonoBehaviour, IClickable
     // Counts how many times the player has clicked the weeds
     public int ClICK_COUNT = 0;
     public int REQUIRED_COUNTS = 10;
+        public BoxCollider2D boxCollider2D;
+
 
     // Start is called when the game begins
     private void Start()
     {
         // Hide the weed sprite initially
         sprite.enabled = false;
+        boxCollider2D.enabled = false;
 
         // Begin the weed attack loop
         StartCoroutine(CowAngerRoutine());
@@ -44,6 +47,8 @@ public class MilkDistraction : MonoBehaviour, IClickable
                 //cow is mad, turn on angered cow sprite
                 isCowMad = true;
                 sprite.enabled = true;
+                boxCollider2D.enabled = true;
+
                 Debug.Log("Weeds have overgrown the field!");
 
                 // Wait until the player makes cow happy
@@ -53,6 +58,8 @@ public class MilkDistraction : MonoBehaviour, IClickable
 
                 // Hide the angered cow and reset the state
                 sprite.enabled = false;
+                boxCollider2D.enabled = false;
+
                 isCowHappy = false;
                 isCowMad = false;
                 Debug.Log("Weeds cleared.");

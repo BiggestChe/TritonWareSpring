@@ -6,6 +6,23 @@ public class BlenderCheck : MonoBehaviour, IClickable
 
     public GameManager gameManager;
 
+    public SpriteRenderer BowlWithIngredients;
+
+    void Start(){
+        BowlWithIngredients.enabled = false;
+    }
+
+    void Update()
+{
+        if((gameManager.blender_eggs + gameManager.blender_milk + gameManager.blender_wheat) >= 1){
+            Debug.Log("should be set to true");
+            BowlWithIngredients.enabled = true;
+        }
+
+        else{
+            BowlWithIngredients.enabled = false;
+        }
+}    
     public void CheckBlenderIngredients()
     {
 
@@ -57,6 +74,7 @@ public class BlenderCheck : MonoBehaviour, IClickable
     }
 
     public void Click(){
+        Debug.Log("this should be blending");
         CheckBlenderIngredients();
     }
     public void ResetBlender()

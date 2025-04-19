@@ -20,6 +20,8 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public GameManager gameManager;
 
+    public AudioManager audioManager;
+
 
     private void Awake()
     {
@@ -75,6 +77,7 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 break;
             }
         
+            audioManager.Play("Pop2");
             Debug.Log("Dropped in bowl!");
             Destroy(gameObject); // or SetActive(false), or snap into place
             return;

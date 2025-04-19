@@ -5,7 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Farm Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/MainGame.unity
+    guid: 4fe8f7b8876184744a9df10f11b384f1
+  - enabled: 1
+    path: Assets/Main.Game.unity
+    guid: 1265e6894c71d1947b6a7636f21c83b9
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

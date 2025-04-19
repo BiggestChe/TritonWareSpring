@@ -26,10 +26,14 @@ public class WheatDistraction : MonoBehaviour, IClickable
 
     public int REQUIRED_COUNTS = 10;
     // Start is called when the game begins
+
+    public BoxCollider2D boxCollider2D;
     private void Start()
     {
         // Hide the weed sprite initially
         sprite.enabled = false;
+
+        boxCollider2D.enabled = false;
 
         // Begin the weed attack loop
         StartCoroutine(WeedAttackRoutine());
@@ -47,9 +51,11 @@ public class WheatDistraction : MonoBehaviour, IClickable
                 float waitTime = Random.Range(minWeedWaitTime, maxWeedWaitTime);
                 yield return new WaitForSeconds(waitTime);
 
+
                 // Show the weeds and start blocking
                 isWeedBlocking = true;
                 sprite.enabled = true;
+                boxCollider2D.enabled = true;
                 Debug.Log("Weeds have overgrown the field!");
 
                 // Wait until the player repels the weeds
@@ -59,6 +65,7 @@ public class WheatDistraction : MonoBehaviour, IClickable
 
                 // Hide the weeds and reset the state
                 sprite.enabled = false;
+                boxCollider2D.enabled = false;
                 isWeedBlocking = false;
                 WeedRepelled = false;
                 Debug.Log("Weeds cleared.");

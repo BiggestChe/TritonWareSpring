@@ -15,6 +15,8 @@ public class CookingSlider : MonoBehaviour
 
     public Canvas canvas;
 
+    public AudioManager audioManager;
+
 
 
     //strike zone bounds
@@ -50,6 +52,7 @@ public class CookingSlider : MonoBehaviour
             
             //is so, add cake to counter and disable the minigame 
             game.cakes++;
+            audioManager.Play("Ding");
             MiniGame.SetActive(false);
             KitchenObjects.SetActive(true);
             canvas.enabled = true;    

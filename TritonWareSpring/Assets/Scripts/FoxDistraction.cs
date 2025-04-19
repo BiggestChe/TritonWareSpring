@@ -5,6 +5,8 @@ public class FoxDistraction : MonoBehaviour, IClickable
 {
     public SpriteRenderer sprite;
     public AudioManager audioManager;
+
+    public BoxCollider2D boxCollider2D;
     public float minFoxWaitTime = 5f;
     public float maxFoxWaitTime = 10f;
 
@@ -18,6 +20,7 @@ public class FoxDistraction : MonoBehaviour, IClickable
 
     private void Start()
     {
+        boxCollider2D.enabled = false;
         sprite.enabled = false;
         StartCoroutine(FoxAttackRoutine());
     }
@@ -36,6 +39,7 @@ public class FoxDistraction : MonoBehaviour, IClickable
                 //pops up sprite
                 isFoxAttacking = true;
                 sprite.enabled = true;
+                boxCollider2D.enabled = true;
                 Debug.Log("Fox is attacking!");
                 yield return new WaitUntil(() => FoxRepelled);
 
@@ -43,6 +47,8 @@ public class FoxDistraction : MonoBehaviour, IClickable
                 sprite.enabled = false;
                 isFoxAttacking = false;
                 FoxRepelled = false;
+                boxCollider2D.enabled = false;
+
                 Debug.Log("Fox repelled.");
             }
             yield return null;

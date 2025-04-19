@@ -1,23 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class StartGame : MonoBehaviour, IClickable
 {
-
     public GameObject kitchenScene;
-
     public GameObject farmScene;
-
     public Canvas playerUI;
-
     public GameManager gameManager;
+    public GameObject Start_Screen;         // The panel to click on
+    public GameObject TutorialPanel;        // The panel that will flash
 
-    public GameObject Start_Screen;
+    public float tutorialDuration = 3f;     // Time to show the tutorial
 
-    public 
-    // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(true);
@@ -25,16 +19,27 @@ public class StartGame : MonoBehaviour, IClickable
         farmScene.SetActive(false);
         playerUI.enabled = false;
         gameManager.enabled = false;
+        TutorialPanel.SetActive(false); // Make sure it's off at start
     }
 
-    public void DestroyPanel(){
-        Destroy(Start_Screen);
+    public void Click()
+    {
+        StartCoroutine(ShowTutorialThenStartGame());
+    }
+
+    private IEnumerator ShowTutorialThenStartGame()
+    {
+        Start_Screen.SetActive(false);         // Hide the start screen
+        TutorialPanel.SetActive(true);         // Show tutorial
+
+        yield return new WaitForSeconds(tutorialDuration); // Wait a bit
+
+        Debug.Log("should be gone");
+
+        TutorialPanel.SetActive(false);        // Hide tutorial
         kitchenScene.SetActive(true);
         farmScene.SetActive(true);
         playerUI.enabled = true;
         gameManager.enabled = true;
-    }
-    public void Click(){
-        return;
     }
 }
