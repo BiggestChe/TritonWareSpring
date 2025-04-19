@@ -11,6 +11,7 @@ public class MilkCounter : MonoBehaviour
     public SpriteRenderer FullMilkBucket;   
     public AudioManager audioManager;
 
+    public GameObject progressBar;
     //three different types of milking
     //Idle - player hasnt clicked on
     //Milking - currently producing milk
@@ -21,6 +22,7 @@ public class MilkCounter : MonoBehaviour
     private void Awake()
     {
         FullMilkBucket.enabled = false;
+        progressBar.SetActive(false);
     }
 
     //upon clicking of milk house
@@ -30,6 +32,8 @@ public class MilkCounter : MonoBehaviour
         {
             case MilkState.Idle:
                 StartCoroutine(MilkCowRoutine());
+                progressBar.SetActive(true);
+
                 break;
 
             case MilkState.ReadyToCollect:
@@ -37,6 +41,8 @@ public class MilkCounter : MonoBehaviour
 
                 CollectMilk();
                 FullMilkBucket.enabled = false;
+                progressBar.SetActive(false);
+
                 break;
 
             case MilkState.Milking:

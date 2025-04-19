@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour
     public int blender_eggs = 0;
     public int blender_wheat = 0;
     public int blender_milk = 0;
-
     public int lives = 3;
 
+    public LayerSwitcher layerSwitcher;
 
 
     void Start()
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         //basket
         if (basketSlots[i].childCount < 1){
             
-            if (ingredient_UI.ContainsKey(ingredient))
+        if (ingredient_UI.ContainsKey(ingredient))
         {
             GameObject added_Ingredient = Instantiate(ingredient_UI[ingredient], basketSlots[i]);
             added_Ingredient.tag = ingredient_UI[ingredient].tag;
@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
     public void OnLose(){
         LoseScreen.SetActive(true);
         player_UI.enabled = false;
+        layerSwitcher.enabled = false;
     }
 
     public void PassBlender()

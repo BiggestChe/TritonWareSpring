@@ -15,6 +15,7 @@ public class WheatCounter : MonoBehaviour
     private WheatState currentState = WheatState.Idle;
 
     public GameObject BeginningSeed;
+    public GameObject progressBar;
 
     public SpriteRenderer FullyGrownHay;
 
@@ -23,6 +24,8 @@ public class WheatCounter : MonoBehaviour
     {
         BeginningSeed.SetActive(false);
         FullyGrownHay.enabled = false;
+        progressBar.SetActive(false);
+
     }
 
     // Called when the player clicks on the wheat field
@@ -39,6 +42,8 @@ public class WheatCounter : MonoBehaviour
             case WheatState.Idle:
 
                 StartCoroutine(GrowWheatRoutine());
+                progressBar.SetActive(true);
+
                 break;
 
             case WheatState.ReadyToHarvest:
@@ -47,6 +52,8 @@ public class WheatCounter : MonoBehaviour
 
                 BeginningSeed.SetActive(false);
                 FullyGrownHay.enabled = false;
+                progressBar.SetActive(false);
+
                 break;
 
             case WheatState.Growing:

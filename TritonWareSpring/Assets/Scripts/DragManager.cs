@@ -16,8 +16,10 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public GameObject MiniGame;
     public GameObject KitchenObjects;
+    private Vector3 doughPosition = new Vector2(-254.7f, -155.4f); // note: Vector2
 
     public GameManager gameManager;
+
 
     private void Awake()
     {
@@ -89,10 +91,15 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
             KitchenObjects.SetActive(false);
 
+            canvas.enabled = false;
+
             gameManager.hasDough = false; 
 
             Debug.Log("Dropped in bowl!");
-            Destroy(gameObject); // or SetActive(false), or snap into place
+            itemBeingDragged.GetComponent<RectTransform>().anchoredPosition = doughPosition;
+
+            gameObject.SetActive(false); 
+// or SetActive(false), or snap into place
             return;
         }
 

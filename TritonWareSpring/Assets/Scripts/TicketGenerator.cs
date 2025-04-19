@@ -10,6 +10,8 @@ public class TicketGenerator : MonoBehaviour
     public TextMeshProUGUI textbox2;
     public TextMeshProUGUI textbox3;
 
+    public ProgressBarScript progressBar;
+
 
 
     public static TicketGenerator tickets;
@@ -48,6 +50,7 @@ public class TicketGenerator : MonoBehaviour
         for (int i = 0; i < wheatCount; i++)
             gameManager.ticketlist.Add(GameManager.IngredientType.Wheat);
 
+        progressBar.PlayLoadingBar();
 
         Debug.Log("Generated cake ticket: " + string.Join(", ", gameManager.ticketlist));
     }

@@ -26,10 +26,12 @@ public class EggCounter : MonoBehaviour
 
     public AudioManager audioManager;
 
+    public GameObject progressBar;
 
     public void Awake()
     {
         FINISHED_EGG.enabled = false;
+        progressBar.SetActive(false);
     }
     //calls upon clicking on the chicken house
     public void OnCapsulePressed()
@@ -44,12 +46,14 @@ public class EggCounter : MonoBehaviour
     {
         case ChickenState.Idle:
             StartCoroutine(LayEggRoutine());
+            progressBar.SetActive(true);
             break;
 
         case ChickenState.ReadyToCollect:
             CollectEgg();
             audioManager.Play("Pop2");
             FINISHED_EGG.enabled = false;
+            progressBar.SetActive(false);
             break;
 
         case ChickenState.Laying:

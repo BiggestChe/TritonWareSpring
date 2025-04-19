@@ -11,6 +11,10 @@ public class CookingSlider : MonoBehaviour
     public GameObject MiniGame;
     public GameObject KitchenObjects; 
 
+    public TicketGenerator ticket;
+
+    public Canvas canvas;
+
 
 
     //strike zone bounds
@@ -48,6 +52,12 @@ public class CookingSlider : MonoBehaviour
             game.cakes++;
             MiniGame.SetActive(false);
             KitchenObjects.SetActive(true);
+            canvas.enabled = true;    
+            Debug.Log("UI activated");
+
+            //new ticket created!
+            TicketGenerator.tickets.GenerateCakeTicket();
+
 
         }
         else
@@ -60,6 +70,8 @@ public class CookingSlider : MonoBehaviour
             game.LoseLife(); 
             MiniGame.SetActive(false);
             KitchenObjects.SetActive(true);
+            canvas.enabled = true;    
+
         }
     }
 }

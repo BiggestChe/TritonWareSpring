@@ -30,8 +30,8 @@ public class Knob : MonoBehaviour
         knobInstance = this; 
 
         //random speed float value
-        speed = UnityEngine.Random.Range(7f, 12f);
-        reverseSpeed = UnityEngine.Random.Range(-12f, -7f); 
+        speed = UnityEngine.Random.Range(15f, 20f);
+        reverseSpeed = UnityEngine.Random.Range(-15f, -20f); 
 
         if (knobPosition == null)
         {
@@ -39,7 +39,7 @@ public class Knob : MonoBehaviour
         }
 
         //set position to left most side of CookingSlider
-        knobPosition.localPosition = new Vector2(minOffset,knobPosition.localPosition.y);
+        knobPosition.localPosition = new Vector3(minOffset,knobPosition.localPosition.y, -2);
     }
 
     // Update is called once per frame
@@ -68,12 +68,17 @@ public class Knob : MonoBehaviour
             if((knobPosition.localPosition.x == minOffset && goingReverse == false) || 
             (knobPosition.localPosition.x < maxOffset && knobPosition.localPosition.x > minOffset && goingReverse == false))
             {   
+                
+                reverseSpeed = UnityEngine.Random.Range(-15f, -20f); 
+
                 Debug.Log("Should go fowards"); 
                 knobPosition.localPosition += new Vector3(speed * Time.deltaTime, 0, 0);
             }
             else if(knobPosition.localPosition.x >= maxOffset || 
             (knobPosition.localPosition.x < maxOffset && knobPosition.localPosition.x > minOffset && goingReverse == true))
             {
+                speed = UnityEngine.Random.Range(15f, 20f);
+
                 Debug.Log("Should go reverse"); 
                 goingReverse = true;
                 Debug.Log(goingReverse);
